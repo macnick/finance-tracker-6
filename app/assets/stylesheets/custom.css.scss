@@ -1,3 +1,16 @@
 $font-url: 'http://fonts.useso.com/css?family=Lato:400,700,400italic,700italic&subset=latin';
 @import 'semantic-ui';
 @import 'semantic-ui/collections/menu';
+
+.field_with_errors {
+  @extend .field;
+  @extend .error;
+}
+
+.item {
+  font-size: 1.2rem;
+}
+
+.main.container {
+  margin-top: 6em;
+}
