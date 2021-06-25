@@ -1,0 +1,27 @@
+<h1>My Portfolio</h1>
+
+<div class="search-area">
+  <h3>Search stocks</h3>
+
+  <div class="ui grid">
+    <div class="eight wide column">
+      <%= form_with url: '#', method: :get, local: false do |form| %>
+        <%# <div class="ui segment"> %>
+          <div class="ui large form">
+
+            <div class="ui search">
+              <div class="ui icon fluid input">
+                <%= form.text_field :stock, placeholder: "Stock ticker symbol", autofocus: true, class: "prompt" %>
+                <i class="search icon"></i>
+              </div>
+                <%= form.submit "Search", class:"ui green button" %>
+              <%# <div class="results"></div> %>
+            </div>
+          </div>
+        <%# </div> %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
