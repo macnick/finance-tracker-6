@@ -1,0 +1,12 @@
+<div class="results-block">
+  <%= render 'layouts/messages' %>
+</div>
+
+<div class="results-block">
+  <% if @stock %>
+    Stock info: <%= @stock.symbol %>
+    Stock price: <%= @stock.latest_price %>
+    Company name: <%= @stock.company_name %>
+    52 week high: <%= @stock.week_52_high %>
+  <% end %>
+</div>

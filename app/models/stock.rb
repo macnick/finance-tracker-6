@@ -1,13 +1,24 @@
 class Stock < ApplicationRecord
+  has_many :user_stocks
+  has_many :users, through: :user_stocks
+
+  validates :name, :ticker, presence: true
+
 
   def self.new_lookup(ticker_symbol)
     client = IEX::Api::Client.new(
-      publishable_token: Rails.application.credentials.iex_client[:token],
-      # publishable_token: 'pk_640fb043666045cbb284550d311ebf95' ,
-      secret_token: 'sk_ed98ef3591784076ad2eb5be46504d00',
+      publishable_token: Rails.application.credentials.iex_client[:api_key],
+      secret_token: Rails.application.credentials.iex_client[:secret_key],
       endpoint: 'https://cloud.iexapis.com/v1'
     )
-    client.quote(ticker_symbol)
-    # getting all the data. use latest_price
+    begin
+      stock = client.quote(ticker_symbol)
+      # getting all the data. use latest_price
+      # new(ticker: stock.symbol, name: stock.company_name, last_price: stock.latest_price, week_52_high: stock.week_52_high, week_52_low: stock.week_52_low)
+    rescue => exception
+      nil      
+    end
   end
+
+
 end

@@ -4,8 +4,8 @@
   <h3>Search stocks</h3>
 
   <div class="ui grid">
-    <div class="eight wide column">
-      <%= form_with url: '#', method: :get, local: false do |form| %>
+    <div class="twelve wide column">
+      <%= form_with url: search_stock_path, method: :get, local: true do |form| %>
         <%# <div class="ui segment"> %>
           <div class="ui large form">
 
@@ -15,13 +15,17 @@
                 <i class="search icon"></i>
               </div>
                 <%= form.submit "Search", class:"ui green button" %>
-              <%# <div class="results"></div> %>
             </div>
           </div>
         <%# </div> %>
       <% end %>
     </div>
+    <div class="twelve wide column">
+      <% if !@my_portfolio.empty? %>
+        <%= render "/stocks/list"%>
+      <% end %>
+    </div>
   </div>
 </div>
-
-
+<div id="results">
+</div>
