@@ -4,6 +4,7 @@
       <%= link_to "TrackerApp", root_path  %>
     </div>
     <% if current_user %>
+      <%= link_to "My portfolio", my_portfolio_path, {class: request.path == my_portfolio_path ? "item active" : "item"} %>
       <div class="ui dropdown item">
         <div class="text">File</div>
         <i class="dropdown icon"></i>
@@ -33,18 +34,13 @@
         </div>
       </div>
       <a class="item">
-        Messages
-      </a>
-      <a class="item">
         Friends
       </a>
-      <% end %>
       <div class="right menu">
-      <% if current_user %>
+
         <div class="item">
           <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
         </div>
-        <% end %>
         <div class="item">
           <div class="ui icon input">
             <input type="text" placeholder="Search...">
@@ -52,6 +48,7 @@
           </div>
         </div>
       </div>
+    <% end %>
     </div>
   </div>
 </div>

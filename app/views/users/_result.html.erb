@@ -2,11 +2,23 @@
   <%= render 'layouts/messages' %>
 </div>
 
-<div class="results-block">
-  <% if @stock %>
-    Stock info: <%= @stock.symbol %>
-    Stock price: <%= @stock.latest_price %>
-    Company name: <%= @stock.company_name %>
-    52 week high: <%= @stock.week_52_high %>
-  <% end %>
-</div>
+<% if @stock %>
+  <div class="results-block ui raised segment">
+    <strong>Stock info:</strong> <%= @stock.symbol %>
+    <strong>Stock price:</strong> $<%= @stock.latest_price %>
+    <strong>Company name:</strong> <%= @stock.company_name %>
+    <strong>52 week high:</strong> $<%= @stock.week_52_high %>
+    <% if current_user.can_track_stock?(@stock.symbol) %>
+      <%= link_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: @stock.symbol), method: :post, class: "ui button" %>
+    <% else %>
+      <span class="badge">You are already tracking 
+      <% if !current_user.under_stock_limit? %>
+        10 stocks
+      <% end %>
+      <% if stock_already_tracked?(@stock.symbol) %>
+        this stock
+      <% end %>
+      </span>
+    <% end %>
+  </div>
+<% end %>

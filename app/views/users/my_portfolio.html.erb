@@ -4,28 +4,37 @@
   <h3>Search stocks</h3>
 
   <div class="ui grid">
-    <div class="twelve wide column">
-      <%= form_with url: search_stock_path, method: :get, local: true do |form| %>
-        <%# <div class="ui segment"> %>
-          <div class="ui large form">
-
-            <div class="ui search">
-              <div class="ui icon fluid input">
-                <%= form.text_field :stock, placeholder: "Stock ticker symbol", autofocus: true, class: "prompt" %>
-                <i class="search icon"></i>
+    <div class="row">
+      <div class="twelve wide column">
+        <%= form_with url: search_stock_path, method: :get, local: false do |form| %>
+          <%# <div class="ui segment"> %>
+            <div class="ui large form">
+              <div class="ui search">
+                <div class="ui icon input">
+                  <%= form.text_field :stock, placeholder: "Stock ticker symbol", autofocus: true, class: "prompt" %>
+                  <i class="search icon"></i>
+                </div>
+                <div class="ui left icon input hidden">
+                  <%= form.submit "Search", class:"ui green button" %>
+                  <i class="search icon"></i>
+                </div>
               </div>
-                <%= form.submit "Search", class:"ui green button" %>
             </div>
-          </div>
-        <%# </div> %>
-      <% end %>
+          <%# </div> %>
+        <% end %>
+      </div>
     </div>
-    <div class="twelve wide column">
-      <% if !@my_portfolio.empty? %>
-        <%= render "/stocks/list"%>
-      <% end %>
+    <div id="results">
+
     </div>
-  </div>
-</div>
-<div id="results">
+
+
+    <div class="row">
+      <div class="twelve wide column">
+        <% if !@my_portfolio.empty? %>
+          <%= render "stocks/list"%>
+        <% end %>
+      </div>
+    </div>
+  </div> 
 </div>

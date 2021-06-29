@@ -16,7 +16,7 @@
           <td><%= stock.last_price %></td>
           <td>0</td>
           <td>0</td>
-          <td>--</td>
+          <td><%= link_to 'Remove', user_stock_path(stock), method: :delete, data: {confirm: 'Are you sure?'}, class: 'ui yellow button'%></td>
         </tr>
 
       <% end %>
