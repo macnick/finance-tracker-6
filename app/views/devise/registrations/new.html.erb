@@ -11,10 +11,17 @@
             <%= devise_error_messages! %>
           </div>
 
-
+          <div class="field ">
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, autofocus: true ,placeholder: "First name"%>
+          </div>
+          <div class="field ">
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, placeholder: "Last name"%>
+          </div>
           <div class="field ">
             <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true ,placeholder: "john@example.com"%>
+            <%= f.email_field :email ,placeholder: "john@example.com"%>
           </div>
 
           <div class="field ">
@@ -27,7 +34,7 @@
               <% end %>
               <!-- <div  data-tooltip = "Add users to your feed"> -->
 
-                <%= f.password_field :password, autocomplete: "off" ,placeholder: "Enter Password" ,data: {toggle: "tooltip", placement: "left" }%>
+                <%= f.password_field :password, autocomplete: "off", placeholder: "Enter Password", data: {toggle: "tooltip", placement: "left" }%>
               <!-- </div> -->
 
 

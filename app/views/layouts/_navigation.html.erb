@@ -37,9 +37,21 @@
         Friends
       </a>
       <div class="right menu">
-
-        <div class="item">
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <div class="ui dropdown item">
+          <i class="user icon"></i>
+          <%= current_user.full_name %>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <i class="edit outline icon"></i>
+            <%= link_to edit_user_registration_path, class: "item" do %>
+              <i class="edit outline icon"></i>
+              Edit Profile
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "item" do %>
+              <i class="sign-out icon"></i>
+              Sign out
+            <% end %>
+          </div>
         </div>
         <div class="item">
           <div class="ui icon input">

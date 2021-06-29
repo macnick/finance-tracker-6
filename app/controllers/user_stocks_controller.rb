@@ -2,12 +2,12 @@ class UserStocksController < ApplicationController
   def create
     stock = Stock.check_db(params[:ticker])
     if stock.blank? 
-      stock = Stock.new_lookup(params[:ticker])
-      new_stock = Stock.new(ticker: stock.symbol, name: stock.company_name, last_price: stock.latest_price)
-      new_stock.save
+      new_stock = Stock.new_lookup(params[:ticker])
+      stock = Stock.new(ticker: new_stock.symbol, name: new_stock.company_name, last_price: new_stock.latest_price)
+      stock.save
     end
-    @user_stock = UserStock.create(user: current_user, stock: new_stock)
-    flash[:notice] = "Stock #{new_stock.name} was successfully added to your portfolio"
+    @user_stock = UserStock.create(user: current_user, stock: stock)
+    flash[:notice] = "Stock #{stock.name} was successfully added to your portfolio"
     redirect_to my_portfolio_path
   end
 
