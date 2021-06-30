@@ -1,0 +1,41 @@
+<div class="results-block">
+  <%= render 'layouts/messages' %>
+</div>
+
+<% if @friends %>
+  <div class="twelve wide column">
+    <div class="results-block ui raised segment">
+      <table class="ui selectable blue table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Profile</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @friends.each do |friend| %>
+              <tr>
+                <td><%= friend.first_name %></td>
+                <td><%= friend.last_name %></td>
+                <td><%= friend.email %></td>
+                <td><%= link_to "View Profile", '#', class: "ui pink button" %></td>
+                <td>
+                  <% if current_user.not_friends_with?(friend.id) %>
+                    <%= link_to "Follow user", "#", class: "ui green button", method: :post %>
+                  <% else %>
+                    You are friends.
+                  <% end %>
+                </td> 
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+<% end %>
+
+
+

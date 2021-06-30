@@ -1,0 +1,40 @@
+<h1>My Friends</h1>
+
+<div class="search-area">
+  <h3>Search Users</h3>
+
+  <div class="ui grid">
+    <div class="row">
+      <div class="twelve wide column">
+        <%= form_with url: search_friend_path, method: :get, local: false do |form| %>
+          <div class="ui segment">
+            <div class="ui large form">
+              <div class="ui search">
+                <div class="ui icon input">
+                  <%= form.text_field :friend, placeholder: "Name or email", autofocus: true, class: "prompt" %>
+                  <i class="search icon"></i>
+                </div>
+                <div class="ui left icon input">
+                  <%= form.submit "Search", class:"ui green button" %>
+                  <i class="search icon"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div id="results" class="row">
+
+    </div>
+
+
+    <div class="row">
+      <div class="twelve wide column">
+        <% if !@friends.empty? %>
+          <%= render "friends/list"%>
+        <% end %>
+      </div>
+    </div>
+  </div> 
+</div>
