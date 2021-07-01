@@ -4,7 +4,7 @@
 
 <% if @friends %>
   <div class="twelve wide column">
-    <div class="results-block ui raised segment">
+    <div class="results-block ui">
       <table class="ui selectable blue table">
         <thead>
           <tr>
@@ -24,9 +24,9 @@
                 <td><%= link_to "View Profile", '#', class: "ui pink button" %></td>
                 <td>
                   <% if current_user.not_friends_with?(friend.id) %>
-                    <%= link_to "Follow user", "#", class: "ui green button", method: :post %>
+                    <%= link_to "Follow user", friendships_path(friend: friend), class: "ui green button", method: :post %>
                   <% else %>
-                    You are friends.
+                    Already following
                   <% end %>
                 </td> 
               </tr>
