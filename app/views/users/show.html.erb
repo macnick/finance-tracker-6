@@ -1,0 +1,43 @@
+<h1>User Details</h1>
+
+<div class="ui grid">
+  <div class="row">
+    <div class="twelve wide column">
+      <div class="results-block ui">
+        <table class="ui selectable blue table">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                  <td><%= @user.first_name %></td>
+                  <td><%= @user.last_name %></td>
+                  <td><%= @user.email %></td>
+                  <td>
+                    <% if current_user.not_friends_with?(@user.id) %>
+                      <%= link_to "Follow user", friendships_path(friend: @user), class: "ui green button", method: :post %>
+                    <% else %>
+                      Already following user <%= @user.first_name %>
+                    <% end %>
+                  </td> 
+                </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="twelve wide column">
+        <% if !@my_portfolio.empty? %>
+          <%= render "stocks/list"%>
+        <% else %>
+          <p>This user is not tracking any stocks</p>
+        <% end %>
+      </div>
+    </div>
+</div>

@@ -4,8 +4,8 @@
 
 <% if @stock %>
   <div class="results-block ui raised segment">
-    <strong>Stock info:</strong> <%= @stock.symbol %>
-    <strong>Stock price:</strong> $<%= @stock.latest_price %>
+    <strong>Ticker:</strong> <%= @stock.symbol %>
+    <strong>Price:</strong> $<%= @stock.latest_price %>
     <strong>Company name:</strong> <%= @stock.company_name %>
     <strong>52 week high:</strong> $<%= @stock.week_52_high %>
     <% if current_user.can_track_stock?(@stock.symbol) %>
