@@ -10,7 +10,9 @@
             <div class="ui field search">
               <div class="ui action input">
                 <%= form.text_field :friend, placeholder: "Name or email", autofocus: true %>
-                <%= form.submit "Search", class:"ui green button" %>
+                <%= form.button type: "submit", class: "ui green icon button" do %>
+                  <i class="search icon"></i>
+                <% end %>
               </div>
             </div>
           </div>

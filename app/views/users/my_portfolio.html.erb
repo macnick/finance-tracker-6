@@ -9,8 +9,10 @@
           <div class="ui large form">
             <div class="ui field search">
               <div class="ui action input">
-                <%= form.text_field :stock, placeholder: "Stock ticker symbol", autofocus: true %>
-                <%= form.submit "Search", class:"ui green button" %>
+                <%= form.text_field :stock, placeholder: "Stock ticker symbol", autofocus: true %> 
+                <%= form.button type: "submit", class: "ui green icon button" do %>
+                  <i class="search icon"></i>
+                <% end %>
               </div>
             </div>
           </div>
