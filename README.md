@@ -4,7 +4,7 @@ This is the finance tracker app from the Complete Ruby on Rails Developer course
 
 ### Features
 
-- Users
+- Users can
   - Create an account
   - Search for stocks and track them
   - Search for other users and follow them
@@ -27,7 +27,6 @@ The project is hosted on Heroku. Please give it some time to load the first time
 - Ruby 2.7.1
 - Ruby on Rails 6.1.3.
 - Familiarity with Ruby on Rails
-
 ```
 
 ### Gems used
@@ -50,6 +49,15 @@ gem 'iex-ruby-client'
 | `rails db:migrate`                                           | Create and migrate the database tables |
 | `rails s`                                                    | To start the Rails server              |
 | `http://localhost:3000`                                      | Visit this link to use the App         |
+
+### What is next
+
+Not in any particular order
+
+- Make the page responsive
+- Add a button to refresh stock prices
+- Add more data on stocks
+- Keep historical data
 
 👤 **My data**
 
