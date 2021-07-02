@@ -7,14 +7,10 @@
       <%= form_with url: search_friend_path, method: :get, local: false do |form| %>
         <div class="ui segment">
           <div class="ui large form">
-            <div class="ui search">
-              <div class="ui icon input">
-                <%= form.text_field :friend, placeholder: "Name or email", autofocus: true, class: "prompt" %>
-                <i class="search icon"></i>
-              </div>
-              <div class="ui left icon input">
+            <div class="ui field search">
+              <div class="ui action input">
+                <%= form.text_field :friend, placeholder: "Name or email", autofocus: true %>
                 <%= form.submit "Search", class:"ui green button" %>
-                <i class="search icon"></i>
               </div>
             </div>
           </div>

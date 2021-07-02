@@ -1,23 +1,16 @@
-
-
-
 <div class="ui centered grid">
   <div class="row">
-    <h3>Search stocks</h3>
+    <h3>Search Stocks</h3>
   </div>
   <div class="row search-area">
     <div class="twelve wide column">
       <%= form_with url: search_stock_path, method: :get, local: false do |form| %>
         <div class="ui segment">
           <div class="ui large form">
-            <div class="ui search">
-              <div class="ui icon input">
-                <%= form.text_field :stock, placeholder: "Stock ticker symbol", autofocus: true, class: "prompt" %>
-                <i class="search icon"></i>
-              </div>
-              <div class="ui left icon input hidden">
+            <div class="ui field search">
+              <div class="ui action input">
+                <%= form.text_field :stock, placeholder: "Stock ticker symbol", autofocus: true %>
                 <%= form.submit "Search", class:"ui green button" %>
-                <i class="search icon"></i>
               </div>
             </div>
           </div>
