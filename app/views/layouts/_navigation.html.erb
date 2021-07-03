@@ -1,48 +1,31 @@
 <div class="ui fixed inverted blue menu">
-  <div class="ui large header item">
-    <%= link_to "TrackerApp", root_path  %>
-  </div>
-  <% if current_user %>
-    <%= link_to "My portfolio", my_portfolio_path, {class: request.path == my_portfolio_path ? "item active" : "item"} %>
-    <%= link_to "My Friends", my_friends_path, {class: request.path == my_friends_path ? "item active" : "item"} %>
-    <div class="right menu">
-      <div class="ui dropdown item">
-        <i class="user icon"></i>
-        <%= current_user.full_name %>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          <i class="edit outline icon"></i>
-          <%= link_to edit_user_registration_path, class: "item" do %>
+  <div class="ui container">
+    <%= link_to "TrackerApp", root_path , class:"ui large header item" %>
+    <% if current_user %>
+      <%= link_to "My portfolio", my_portfolio_path, {class: request.path == my_portfolio_path ? "item active" : "item"} %>
+      <%= link_to "My Friends", my_friends_path, {class: request.path == my_friends_path ? "item active" : "item"} %>
+      <div class="right menu">
+        <div class="ui dropdown item">
+          <i class="user icon"></i>
+          <%= current_user.full_name %>
+          <i class="dropdown icon"></i>
+          <div class="menu">
             <i class="edit outline icon"></i>
-            Edit Profile
-          <% end %>
-          <%= link_to destroy_user_session_path, method: :delete, class: "item" do %>
-            <i class="sign-out icon"></i>
-            Sign out
-          <% end %>
-          <div class="divider"></div>
-          <div class="item">
-            <i class="dropdown icon"></i>
-            Publish To Web
-            <div class="menu">
-              <div class="item">Google Docs</div>
-              <div class="item">Google Drive</div>
-              <div class="item">Dropbox</div>
-              <div class="item">Another Service...</div>
-            </div>
+            <%= link_to edit_user_registration_path, class: "item" do %>
+              <i class="edit outline icon"></i>
+              Edit Profile
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "item" do %>
+              <i class="sign-out icon"></i>
+              Sign out
+            <% end %>
+            
           </div>
+          
         </div>
-
-
         
       </div>
-      <div class="item">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search...">
-          <i class="search link icon"></i>
-        </div>
-      </div>
+    <% end %>
     </div>
-  <% end %>
   </div>
 </div>
