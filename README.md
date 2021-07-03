@@ -54,7 +54,7 @@ gem 'iex-ruby-client'
 
 Not in any particular order
 
-- Make the page responsive
+- Make the navbar responsive
 - Add a button to refresh stock prices
 - Add more data on stocks
 - Keep historical data
