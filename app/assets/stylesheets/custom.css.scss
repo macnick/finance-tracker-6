@@ -18,3 +18,12 @@
   display: block;
   margin-bottom: 1rem;
 }
+
+@media screen and (max-width: 630px) {
+  .item {
+    font-size: x-small;
+  }
+  .large.header.item {
+    font-size: small;
+  }
+}
